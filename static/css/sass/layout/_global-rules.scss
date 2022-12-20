@@ -1,0 +1,38 @@
+
+// mixin
+@use "../my-modules/mixin" as *;
+// varibles 
+@use "../variables/media" as *;
+
+* {
+   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.container{
+   & {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 15px;  
+      padding-right: 15px;  
+   }
+
+   @include media-range (mobile, medium) {
+      width : 750px;
+   }
+   @media ($min-small) {
+      width : 750px;
+   }
+
+
+
+
+
+}

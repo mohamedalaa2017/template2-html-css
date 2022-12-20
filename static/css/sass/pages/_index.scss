@@ -1,0 +1,22 @@
+// mixin
+
+@use '../my-modules/mixin'as *;
+
+// function 
+
+@use '../my-modules/function'as *;
+// global-rules
+@use '../layout/global-rules'as *;
+
+//variables 
+@use '../variables/media'as *;
+@use '../variables/media'as *;
+@use '../variables/golbal-varibles'as *;
+@use '../layout/global_boxes'as *;
+
+//////////////////
+
+p {
+    margin:0;
+
+}

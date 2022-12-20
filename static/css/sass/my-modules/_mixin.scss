@@ -1,0 +1,245 @@
+// import functions
+@use './function'as *;
+
+/////////////////////////////////// mixins /////////////////////////////////////////////
+
+
+@mixin padding-lr ($padding){
+    padding-right: $padding;
+    padding-left: $padding;
+}         
+
+
+
+
+
+
+///btn
+/// params : $width, $height, $color, $background-color, $background-color-hover
+/// $background-color-hover is ---> additional and if background-color from bootstrap color the background-color-hover will be like bootstrap button
+@mixin btn($width, $height, $color, $background-color, $background-color-hover:'none') {
+    // @extend %center-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    $colors: (primary : #007bff, secondary : #6c757d, success: #28a745, danger: #dc3545, warning: #ffc107, info: #17a2b8, light: #f8f9fa, dark: #343a40, link: transparent);
+
+    @if map-has-key($colors, $color) {
+        $color: map-get($colors, $color);
+    }
+
+    @if map-has-key($colors, $background-color) {
+        @if $background-color-hover=='none' {
+            $background-color-hover: $background-color;
+        }
+
+        $background-color : map-get($colors, $background-color);
+
+    }
+    width: $width;
+    height: $height;
+    color: $color;
+
+    background-color: $background-color; //primary: #007bff
+
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid $background-color;
+    transition: 0.5s;
+
+
+    &:hover {
+        $colors-hover: (primary : rgb(78, 35, 197), secondary : #565c61, success: #237536, danger: #b90f0f, warning: #9c7910, info: #127888, light: rgb(241, 241, 241), dark: #1b1d1f, link: transparent);
+
+        @if map-has-key($colors-hover, $background-color-hover) {
+            $background-color-hover: map-get($colors-hover, $background-color-hover);
+        }
+
+        background-color: $background-color-hover;
+    }
+}
+
+
+
+//foooter 
+@mixin footer ($color, $background-color) {
+    @extend %center-flex;
+    color: $color;
+    background-color: $background-color;
+    width: 100%;
+    height: 100px;
+    font-size: 20px;
+}
+
+
+
+// container 
+@mixin container($padding) {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $padding;
+    padding-right: $padding;
+}
+
+
+
+
+
+
+/// burger-icon
+/// must be div have 3 span or it won't work
+@mixin burger($direction, $width, $height, $margin-bottom, $color, $full) {
+    @if $direction=="right" {
+        $direction: flex-start;
+    }
+
+    @else if $direction=="left" {
+        $direction: flex-end;
+    }
+
+    @else {
+        @error "direction right or left only";
+    }
+
+    & {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        align-items: $direction;
+    }
+
+    span {
+        background-color: $color;
+        width: $width;
+        height: $height;
+    }
+
+    span:not(:last-child) {
+        margin-bottom: $margin-bottom;
+    }
+
+    span:nth-child(2) {
+        width: $full;
+        transition: 0.2s;
+    }
+}
+
+
+
+/// circle
+/// get (dimintion, color) to make a circle with the dimintion and the color of the circle
+@mixin circle($dimintion, $color) {
+    width: $dimintion;
+    height: $dimintion;
+    border-radius: 50%;
+    color: $color;
+}
+
+
+
+/// to make Arrow
+/// and i can the the postion with the content of mixin
+@mixin arrow ($direction, $border-width, $color) {
+    content: "";
+    border-style: solid;
+    border-width: #{$border-width};
+
+    @if $direction=="down" {
+        border-color: $color transparent transparent transparent;
+    }
+
+    @else if $direction=="left" {
+        border-color: transparent $color transparent transparent;
+    }
+
+    @else if $direction=="top" {
+        border-color: transparent transparent $color transparent;
+    }
+
+    @else if $direction=="right" {
+        border-color: transparent transparent transparent $color;
+    }
+
+    @else {
+        @error "put a correct direction"
+    }
+
+    position: absolute;
+
+    & {
+        @content;
+    }
+}
+
+// // // // // media queries mixins /////////////////
+
+
+/// param type for if the media min-width or max-width 
+/// $type --->>> min or max 
+/// param width for media that we want (mobile , small screen, medium screen, large screen )
+/// $width ---->>> mobile or small or medium or large
+/// 
+/// 
+// type: for min-width or max-width
+// width: the value of mix-width or max-width
+
+$type-check: (min: min-width, max: max-width);
+$sizes : (mobile : 767px, small : 768px, medium: 992px, large: 1200px);
+
+@mixin media ($type, $width, $the-reset:'Null') {
+    @if not map-has-key($type-check, $type) {
+        @error "in type enter min or max";
+    }
+
+    @if map-has-key($sizes, $width) {
+        $width: map-get($sizes, $width);
+    }
+
+
+    $type : map-get($type-check, $type);
+
+    @if $the-reset=='Null' {
+        @media ($type: $width) {
+            @content;
+        }
+
+    }
+
+    @else {
+        $R : "#{$type}: #{$width})  and (#{$the-reset}";
+
+        @media ($R) {
+            @content;
+        }
+    }
+
+}
+
+
+
+/// i added the range to media mixin but it wasn't brilliant so i made this mixin
+/// $min --->> min-width
+/// $max --->> max-width
+/// min or max can be the the global sizes like mobile small medium and large 
+@mixin media-range($min, $max) {
+    $sizes: (mobile : 767px, small : 768px, medium: 992px, large: 1200px);
+
+    @if map-has-key($sizes, $min) {
+        $min: map-get($sizes, $min);
+    }
+
+    @if map-has-key($sizes, $max) {
+        $max: map-get($sizes, $max);
+    }
+
+    $R : "min-width: #{$min}) and (max-width: #{$max}"; // R --> rage 
+
+    @media ($R) {
+        @content;
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////

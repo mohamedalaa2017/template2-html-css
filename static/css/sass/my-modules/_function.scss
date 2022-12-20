@@ -1,0 +1,12 @@
+
+
+
+//calulate
+@function calculate($sizes...) {
+    $total : 0;
+    @each $size in $sizes {
+        $total : $total + $size;
+    }
+    @return $total;
+}
+

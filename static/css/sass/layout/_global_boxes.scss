@@ -1,0 +1,76 @@
+
+
+
+// distanse padding
+%distance-top1 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+%distance-top2 {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+%distance-left1 {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+%distance-left2 {
+    padding-right: 120px;
+    padding-left: 120px;
+}
+%center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+///////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////
+/// 
+/// 
+/// 
+
+/// 
+/// list reset 
+%list-reset {
+    list-style : none;
+    padding: 0;
+    margin: 0;
+}
+
+/// this mixin for reset list for navbar and must include this mixin in ul elment
+%nav-list-reset {
+    @extend %list-reset;
+    & li a {
+        text-decoration: none;
+    }    
+}
+
+
+
+////////////////////////////////////
+%special-header {
+    & {
+        margin-top: 5px;
+        padding-top: 70px;
+        padding-bottom: 130px;
+        text-align: center;
+    }
+
+    
+    h2 {
+        font-size: 100px;
+        color: #ebeced;
+        letter-spacing: -4px;
+        font-weight: 800;
+        margin: 0;
+    }
+    p {
+        text-align: center;
+        margin: -25px 0 0;
+        font-size: 20px;
+        color: #797;
+    }
+
+}
