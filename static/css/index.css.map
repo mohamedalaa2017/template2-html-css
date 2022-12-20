@@ -1,1 +1,0 @@
-{"version":3,"sources":["sass/layout/_global-rules.scss","index.css","sass/my-modules/_mixin.scss","sass/pages/_index.scss"],"names":[],"mappings":"AAMA;EACG,sBAAA;ACLH;;ADQA;EACE,uBAAA;ACLF;;ADQA;EACE,oCAAA;ACLF;;ADSG;EACG,iBAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;ACNN;AC6NI;EF5NJ;IASM,YAAA;ECNJ;AACF;ADOG;EAXH;IAYM,YAAA;ECJJ;AACF;;AETA;EACI,SAAA;AFYJ","file":"index.css"}
