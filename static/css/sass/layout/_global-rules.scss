@@ -24,13 +24,15 @@ body {
       padding-right: 15px;  
    }
 
-   @include media-range (mobile, medium) {
+   @include media (min, mobile) {
       width : 750px;
    }
-   @media ($min-small) {
-      width : 750px;
+   @include media (min, medium) {
+      width : 970px;
    }
-
+   @include media (min, large) {
+      width : 1170px;
+   }
 
 
 

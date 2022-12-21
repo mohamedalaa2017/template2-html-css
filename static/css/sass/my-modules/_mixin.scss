@@ -4,10 +4,10 @@
 /////////////////////////////////// mixins /////////////////////////////////////////////
 
 
-@mixin padding-lr ($padding){
+@mixin padding-lr ($padding) {
     padding-right: $padding;
     padding-left: $padding;
-}         
+}
 
 
 
@@ -38,6 +38,7 @@
         $background-color : map-get($colors, $background-color);
 
     }
+
     width: $width;
     height: $height;
     color: $color;
@@ -192,7 +193,7 @@ $sizes : (mobile : 767px, small : 768px, medium: 992px, large: 1200px);
     @if not map-has-key($type-check, $type) {
         @error "in type enter min or max";
     }
-
+    
     @if map-has-key($sizes, $width) {
         $width: map-get($sizes, $width);
     }
