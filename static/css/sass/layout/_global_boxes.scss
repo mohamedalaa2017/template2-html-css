@@ -40,8 +40,11 @@
 }
 
 /// this mixin for reset list for navbar and must include this mixin in ul elment
+/// for ul which will become a navbar
 %nav-list-reset {
     @extend %list-reset;
+    display: flex;
+    flex-direction: row;
     & li a {
         text-decoration: none;
     }    

@@ -15,8 +15,64 @@
 @use '../layout/global_boxes'as *;
 
 //////////////////
+body {
+    background-color: rgb(114, 91, 91);
+}
 
-p {
-    margin:0;
 
+header {
+    .container {
+        & {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar {
+            & {
+                display: flex;
+                flex-direction: row;
+
+            }
+            .nav {
+                ul {
+                    & {
+                        width: 100%;
+                        @extend %nav-list-reset;
+                        justify-content: space-between;
+                    }
+                    li {
+                        & {
+                            margin-right: 43px;
+                        }
+                        &:first-child {
+                            margin-left: 80px;
+                        }
+                        a {
+                            color: white;
+                        }
+
+                    }
+
+                }    
+            }
+            .search {
+                & {
+                    margin-left: 80px;
+                    position: relative;
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    height: 26px;
+                    background-color: #160000;
+                    top: -5px;
+                    width: 2px;
+                    right: 32px;
+                }
+                
+            }
+    }
+    }
 }
