@@ -3,6 +3,9 @@
 @use '../css/sass/my-modules/mixin' as *;
 @use '../css/sass/my-modules/function' as *;
 
+//component 
+@use '../css/sass/component/section' as *;
+
 @use '../css/sass/layout/global-rules' as *;
 @use '../css/sass/variables/media' as *;
 @use '../css/sass/variables/golbal-varibles' as *;

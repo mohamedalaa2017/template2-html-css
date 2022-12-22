@@ -52,10 +52,6 @@ header .container .navbar .nav ul li a {
   text-decoration: none;
 }
 
-body {
-  background-color: black;
-}
-
 header {
   position: absolute;
   left: 0;
@@ -183,4 +179,107 @@ header .container .navbar .search::before {
   top: -5px;
   width: 2px;
   right: 32px;
+}
+
+.landing {
+  min-height: 100vh;
+  background-image: url("../images/landing.jpg");
+  background-size: cover;
+  position: relative;
+}
+.landing .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+.landing .text {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 50%;
+  padding: 3px 40px;
+  color: white;
+  background-color: rgba(25, 200, 250, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+@media (max-width: 768px) {
+  .landing .text {
+    width: 100%;
+  }
+}
+.landing .text .content {
+  max-width: 500px;
+}
+@media (max-width: 768px) {
+  .landing .text .content {
+    max-width: 100%;
+  }
+}
+.landing .text .content h2 {
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 1.6;
+}
+.landing .text .content p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.landing .change-background {
+  color: #ddd;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+@media (max-width: 992px) {
+  .landing .change-background {
+    display: none;
+  }
+}
+.landing .fa-angle-right {
+  right: 15px;
+}
+.landing .fa-angle-left {
+  left: 15px;
+}
+.landing .bullets {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 30px;
+}
+.landing .bullets ul {
+  list-style: none;
+  width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.landing .bullets ul li {
+  width: 15px;
+  height: 15px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.landing .bullets ul .active {
+  background-color: #19c8fa;
+  border-color: #19c8fa;
 }

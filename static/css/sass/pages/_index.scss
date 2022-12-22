@@ -8,6 +8,9 @@
 // global-rules
 @use '../layout/global-rules'as *;
 
+//component 
+@use '../component/section' as *;
+
 //variables 
 @use '../variables/media'as *;
 @use '../variables/media'as *;
@@ -15,9 +18,7 @@
 @use '../layout/global_boxes'as *;
 
 //////////////////
-body {
-    background-color: black;
-}
+
 
 
 header {
@@ -27,15 +28,17 @@ header {
         width: 100%;
         z-index: 2;
     }
+
     .container {
         & {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            position: relative; 
-            min-height: 97px;      
+            position: relative;
+            min-height: 97px;
         }
+
         &::after {
             content: "";
             position: absolute;
@@ -45,30 +48,29 @@ header {
             width: calc(100% - 30px);
             left: 15px;
         }
+
         .navbar {
             & {
                 flex: 1;
-                justify-content:  flex-end;
+                justify-content: flex-end;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-
-
-
             }
-            
+
             .toggle-menu {
                 & {
                     color: white;
                     font-size: 30px;
-                    
                 }
+
                 @include media (min, small) {
-                    display: none ;
+                    display: none;
                 }
 
 
             }
+
             .nav {
                 ul {
                     & {
@@ -76,51 +78,55 @@ header {
                         @extend %nav-list-reset;
 
                         @include media (max, small) {
-                            display: none;                
-                    }
+                            display: none;
+                        }
 
                     }
-                    li a { 
+
+                    li a {
                         & {
                             display: block;
-                            padding : 40px 20px;
+                            padding: 40px 20px;
                             color: white;
                             font-size: 14px;
                             transition: 0.3s;
                             position: relative;
                             z-index: 2;
-                            
-                        }    
 
-                        &.active , &:hover {
-                            color : $main-color;
+                        }
+
+                        &.active,
+                        &:hover {
+                            color: $main-color;
                             display: block;
                             border-bottom: 1px solid $main-color;
-                            padding-bottom : 38px;
-                             
+                            padding-bottom: 38px;
+
                         }
 
 
-                        
+
                     }
 
-                }    
+                }
             }
+
             @include media (max, small) {
-                .toggle-menu:hover + .nav ul { 
+                .toggle-menu:hover+.nav ul {
                     display: flex;
                     flex-direction: column;
                     position: absolute;
                     top: 100%;
                     left: 0;
                     background-color: rgb(0 0 0 / 50%);
-                    
+
                     a {
                         padding: 16px;
                     }
-                    
+
+                }
             }
-        }
+
             .search {
                 & {
                     i {
@@ -134,10 +140,12 @@ header {
                     @include media (max, medium) {
                         margin-left: 25px;
                     }
+
                     @include media (max, small) {
                         margin-left: 40px;
                     }
                 }
+
                 &::before {
                     content: "";
                     position: absolute;
@@ -147,9 +155,112 @@ header {
                     width: 2px;
                     right: 32px;
                 }
-    
+
             }
+        }
+
+    }
+}
+
+.landing {
+    & {
+        min-height: 100vh;
+        background-image: url("../images/landing.jpg");
+        background-size: cover;
+        position: relative;
+    }
+    .overlay {
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0 0 0 / 45%);
     }
 
+    .text {
+        & {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            padding: 3px 40px;
+            
+            color: white;
+            background-color: rgba($main-color, 25%);
+            display: flex;
+            justify-content: flex-end;
+
+            @include media (max, small) {
+                width: 100%;
+            }
+
+
+        }
+        .content {
+            & {     
+                max-width: 500px;
+                @include media (max, small) {
+                    max-width: 100%;
+                }
+            }
+            h2 {
+                font-size: 28px;
+                font-weight: normal;
+                line-height: 1.6;
+            }
+            p {
+                font-size: 15px;
+                line-height: 1.8;
+            }
+        }
+
+    }
+
+    .change-background  { 
+        color: #ddd;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @include media (max, medium) {
+            display: none;
+        }
+    }
+    .fa-angle-right {
+        right: 15px;
+    }
+    .fa-angle-left {
+        left: 15px;
+    }
+    .bullets {
+        & {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 30px;
+            
+        }
+        ul {
+            & {
+                list-style: none;
+                width: 100px;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+            }
+           
+            li {
+                width: 15px;
+                height: 15px;
+                border: 1px solid white;
+                border-radius: 50%;
+            }
+            .active {
+                background-color: $main-color;
+                border-color: $main-color;
+            }
+        }
     }
 }
