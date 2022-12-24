@@ -271,29 +271,61 @@ header {
 
 .services {
         & {
+            padding : 100px;
             display: grid;
             grid-template-columns: repeat(2, minmax(300px, 1fr));
-            grid-gap: 150px;
+            grid-column-gap: 40px;
+            grid-row-gap: 60px;
     
             @include media (max, medium) {
-                grid-template-columns: minmax(300px, 1fr);
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
-
+            @include media (max, small) {
+                padding: 100px 0;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        
+        }
         .flexx {
             & {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                // padding: 50px;
+
+                @include media (max , small) {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
             }
+            .write {
+                h3 {
+                    margin-bottom: 30px;
+                    color: $main-color;
+                }
+                p {
+                    line-height: 1.8;
+                    color: #777;
+                }
+            }
+
+               
             .image {
                 align-self: flex-start;
                 margin-top: 20px;
                 margin-right: 80px;
+                @include media (max , medium) {
+                    margin-right: 50px;
+                }
+                @include media (max , small) {
+                    align-self: center;
+                    margin-right: 0;
+                }
             }
+
         }
 
 
-    }
+    
 }
