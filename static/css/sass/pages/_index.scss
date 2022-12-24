@@ -264,3 +264,36 @@ header {
         }
     }
 }
+
+.main-heading {
+    @extend %main-heading;
+}
+
+.services {
+        & {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(300px, 1fr));
+            grid-gap: 150px;
+    
+            @include media (max, medium) {
+                grid-template-columns: minmax(300px, 1fr);
+            }
+
+        .flexx {
+            & {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                // padding: 50px;
+            }
+            .image {
+                align-self: flex-start;
+                margin-top: 20px;
+                margin-right: 80px;
+            }
+        }
+
+
+    }
+}
