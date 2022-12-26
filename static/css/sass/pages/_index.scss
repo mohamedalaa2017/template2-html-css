@@ -404,3 +404,121 @@ header {
     
 
 }
+
+.portfolio {
+    & {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    
+
+    .shuffel {
+        & {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+         
+            
+        }
+        ul {
+            & {
+                @extend %nav-list-reset;
+            }
+
+
+            li {
+
+                & {
+                    padding: 10px;
+                    @include btn(60px, 35px, black, light, $main-color);
+                }
+                &:not(:first-child):hover #active{
+                    background-color: white;
+                }
+
+            }
+            #active {
+                background-color: $main-color;
+                
+            }
+
+
+
+            
+        }
+
+    }
+
+    .container-image {
+        & {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+        .box {
+            & {
+                position: relative;
+                overflow: hidden;
+                @include media (min, small) {
+                    flex-basis : 50%;
+                }
+                @include media (min, large) {
+                    flex-basis : 25%;
+                }
+            }
+            img {
+                & {
+                    max-width: 100%;
+                    transition: 0.3s;
+                }
+
+            }
+            .caption {
+                & {
+                    position: absolute;
+                    padding: 5px;
+                    height: calc(100% - 130px);
+                    width: 100%;
+                    background-color: white;
+                    left: 0;
+                    bottom: -100%;
+                    transition: 0.3s;
+                }
+                h4 {
+                    font-weight: normal;
+                    margin-bottom: 10px;
+
+                }
+                p {
+                    color: $main-color;
+                }
+
+            }
+            &:hover  {
+                .caption {
+                    bottom: 0;
+                }
+                img {
+                    transform: rotate(3deg) scale(1.1);
+                }
+            }
+
+        }
+
+    }
+
+    .more {
+        & {
+            margin-top: 27px;
+            @extend %center-flex;
+        }
+        a {
+            text-decoration: none;
+            @include btn(80px, 45px, black, $main-color, white);
+            text-transform: uppercase;
+        }
+        
+
+    }
+}

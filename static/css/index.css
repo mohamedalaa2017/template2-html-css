@@ -33,13 +33,25 @@ body {
   }
 }
 
-header .container .navbar .nav ul {
+.portfolio .more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .container .navbar .nav ul, .portfolio .shuffel ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-header .container .navbar .nav ul {
+header .container .navbar .nav ul, .portfolio .shuffel ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,7 +60,7 @@ header .container .navbar .nav ul {
       -ms-flex-direction: row;
           flex-direction: row;
 }
-header .container .navbar .nav ul li a {
+header .container .navbar .nav ul li a, .portfolio .shuffel ul li a {
   text-decoration: none;
 }
 
@@ -473,4 +485,136 @@ header .container .navbar .search::before {
   .design .image {
     display: none;
   }
+}
+
+.portfolio {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.portfolio .shuffel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.portfolio .shuffel ul li {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  width: 60px;
+  height: 35px;
+  color: black;
+  background-color: #f8f9fa;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #f8f9fa;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.portfolio .shuffel ul li:hover {
+  background-color: #19c8fa;
+}
+.portfolio .shuffel ul li:not(:first-child):hover #active {
+  background-color: white;
+}
+.portfolio .shuffel ul #active {
+  background-color: #19c8fa;
+}
+.portfolio .container-image {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 60px;
+}
+.portfolio .container-image .box {
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .portfolio .container-image .box {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .portfolio .container-image .box {
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+  }
+}
+.portfolio .container-image .box img {
+  max-width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.portfolio .container-image .box .caption {
+  position: absolute;
+  padding: 5px;
+  height: calc(100% - 130px);
+  width: 100%;
+  background-color: white;
+  left: 0;
+  bottom: -100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.portfolio .container-image .box .caption h4 {
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+.portfolio .container-image .box .caption p {
+  color: #19c8fa;
+}
+.portfolio .container-image .box:hover .caption {
+  bottom: 0;
+}
+.portfolio .container-image .box:hover img {
+  -webkit-transform: rotate(3deg) scale(1.1);
+          transform: rotate(3deg) scale(1.1);
+}
+.portfolio .more {
+  margin-top: 27px;
+}
+.portfolio .more a {
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  width: 80px;
+  height: 45px;
+  color: black;
+  background-color: #19c8fa;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #19c8fa;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+.portfolio .more a:hover {
+  background-color: white;
 }

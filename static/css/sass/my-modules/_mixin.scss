@@ -52,7 +52,7 @@
 
 
     &:hover {
-        $colors-hover: (primary : rgb(78, 35, 197), secondary : #565c61, success: #237536, danger: #b90f0f, warning: #9c7910, info: #127888, light: rgb(241, 241, 241), dark: #1b1d1f, link: transparent);
+        $colors-hover: (primary : rgb(78, 35, 197), secondary : #565c61, success: #237536, danger: #b90f0f, warning: #9c7910, info: #127888, light: rgb(214, 214, 214), dark: #1b1d1f, link: transparent);
 
         @if map-has-key($colors-hover, $background-color-hover) {
             $background-color-hover: map-get($colors-hover, $background-color-hover);
