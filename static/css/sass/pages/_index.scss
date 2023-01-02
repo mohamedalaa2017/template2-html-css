@@ -522,3 +522,152 @@ header {
 
     }
 }
+
+.video {
+    & {
+        position: relative;
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(black, 60%);
+    }
+    video {
+        width: 100%;
+    }
+    .text {
+        & {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            padding: 50px;
+            background-color: rgba($main-color, 25%);
+            text-align: center;
+            color: white;
+        }
+        h2 {
+            font-weight: normal;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            color: white;
+            background-color: black;
+            border: none;
+            text-transform: uppercase;
+        }
+        
+    }
+}
+
+.about {
+    & {
+        padding-top: 100px;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+        
+    img  {
+        position: relative;
+        max-width: 100%;
+        bottom: -120px;
+        margin-top: -120px;
+        
+        
+        @include media (max, small) {
+            bottom: -60px;
+            margin-top: -60px;
+
+        }
+    }
+    
+}
+
+.stas {
+    & {
+        position: relative;
+        padding-top: 100px;
+        text-align: center;
+        padding-bottom: 100px;
+        background-image: url("../images/stats.png");
+        background-size: cover;
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(black, 60%);
+    }
+    &::after {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        padding: 50px;
+        background-color: rgba($main-color, 25%);
+        text-align: center;
+        color: white;
+
+    }
+    .stas-container {
+        & {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .box {
+            & {
+                color: white;
+                padding: 50px;
+                background-color: rgba($main-color, 25%);
+    
+                @include media (max, mobile) {
+                    flex-basis: 100%;
+                }
+                @include media (min, small) {
+                    flex-basis: 50%;
+                }
+                @include media (min, medium) {
+                    flex-basis: 25%;
+                }
+            }
+
+            i {
+                background-color: black;
+                text-align: center;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                margin: 0 auto 30px;
+            }
+            .number {
+                font-size: 50px;
+                font-weight: bold;
+                margin: 0 0 20px;
+            }
+            p {
+                font-size: 14px;
+            }
+
+        }
+
+    }
+  
+  }

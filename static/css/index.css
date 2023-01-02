@@ -618,3 +618,148 @@ header .container .navbar .search::before {
 .portfolio .more a:hover {
   background-color: white;
 }
+
+.video {
+  position: relative;
+}
+.video::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.video video {
+  width: 100%;
+}
+.video .text {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 100%;
+  padding: 50px;
+  background-color: rgba(25, 200, 250, 0.25);
+  text-align: center;
+  color: white;
+}
+.video .text h2 {
+  font-weight: normal;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+.video .text p {
+  margin-bottom: 20px;
+}
+.video .text button {
+  padding: 10px 20px;
+  color: white;
+  background-color: black;
+  border: none;
+  text-transform: uppercase;
+}
+
+.about {
+  padding-top: 100px;
+  overflow: hidden;
+  text-align: center;
+}
+.about img {
+  position: relative;
+  max-width: 100%;
+  bottom: -120px;
+  margin-top: -120px;
+}
+@media (max-width: 768px) {
+  .about img {
+    bottom: -60px;
+    margin-top: -60px;
+  }
+}
+
+.stas {
+  position: relative;
+  padding-top: 100px;
+  text-align: center;
+  padding-bottom: 100px;
+  background-image: url("../images/stats.png");
+  background-size: cover;
+}
+.stas::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.stas::after {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 100%;
+  padding: 50px;
+  background-color: rgba(25, 200, 250, 0.25);
+  text-align: center;
+  color: white;
+}
+.stas .stas-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.stas .stas-container .box {
+  color: white;
+  padding: 50px;
+  background-color: rgba(25, 200, 250, 0.25);
+}
+@media (max-width: 767px) {
+  .stas .stas-container .box {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .stas .stas-container .box {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .stas .stas-container .box {
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+  }
+}
+.stas .stas-container .box i {
+  background-color: black;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 30px;
+}
+.stas .stas-container .box .number {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+.stas .stas-container .box p {
+  font-size: 14px;
+}
